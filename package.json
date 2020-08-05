@@ -1,0 +1,27 @@
+{
+  "name": "MagneticButton",
+  "version": "1.0.0",
+  "description": "A small set of magnetic buttons with some fun hover animations.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html --open",
+    "clean": "rm -rf dist/*",
+    "build:parcel": "parcel build src/index.html --no-content-hash --no-minify --no-source-maps --public-url ./",
+    "build": "npm run clean && npm run build:parcel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/codrops/MagneticButton.git"
+  },
+  "keywords": [],
+  "author": "Codrops",
+  "license": "MIT",
+  "homepage": "https://tympanus.net/codrops/",
+  "bugs": {
+    "url": "https://github.com/codrops/MagneticButton/issues"
+  },
+  "dependencies": {
+    "gsap": "^3.4.2",
+    "parcel-bundler": "^1.12.4"
+  }
+}

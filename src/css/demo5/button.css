@@ -1,0 +1,87 @@
+body {
+	--button-border-radius: 50%;
+    --button-bg: transparent;
+    --button-stroke-1: #5a5456;
+    --button-stroke-2: #5a5456;
+    --button-stroke-width: 1px;
+    --button-text: #ffffff;
+    --button-bg-hover: transparent;
+    --button-stroke-hover-1: #31a290;
+    --button-stroke-hover-2: #31a290;
+    --button-stroke-width-hover: 1px;
+    --button-text-hover: #fff;
+    --cursor-stroke: #330ec1;
+    --cursor-fill: #330ec1;
+    --cursor-stroke-width: 1px;
+    --color-text: #ffffff;
+    --color-bg: #1e1e23;
+    --color-link: #e20c6a;
+    --color-link-hover: #5a5456;
+}
+
+.button {
+	cursor: pointer;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border: 0;
+	color: var(--button-text);
+	background: none;
+	width: 10rem;
+	height: 10rem;
+	padding: 0;
+	margin: 1rem;
+	font-family: inherit;
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.button:focus,
+.button--hover {
+	outline: none;
+	border-color: var(--button-stroke-hover);
+	color: var(--button-text-hover);
+	background: var(--button-bg-hover);
+}
+
+.button__deco {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-width: var(--button-stroke-width);
+	border-style: solid;
+	border-radius: var(--button-border-radius);
+}
+
+.button__deco--1 {
+	border-color: var(--button-stroke-1);
+}
+
+.button--hover .button__deco--1 {
+	border-color: var(--button-stroke-hover-1);
+}
+
+.button__deco--2 {
+	border-color: var(--button-stroke-2);
+}
+
+.button--hover .button__deco--2 {
+	border-color: var(--button-stroke-hover-2);
+}
+
+.button__text, 
+.button__text-inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.button__text {
+	overflow: hidden;
+}
