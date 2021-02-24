@@ -55,7 +55,7 @@ export default class ButtonCtrl extends EventEmitter {
     }
     render() {
         // calculate the distance from the mouse to the center of the button
-        const distanceMouseButton = distance(mousepos.x, mousepos.y, this.rect.left + this.rect.width/2, this.rect.top + this.rect.height/2);
+        const distanceMouseButton = distance(mousepos.x+window.scrollX, mousepos.y+window.scrollY, this.rect.left + this.rect.width/2, this.rect.top + this.rect.height/2);
         // new values for the translations and scale
         let x = 0;
         let y = 0;
@@ -64,8 +64,8 @@ export default class ButtonCtrl extends EventEmitter {
             if ( !this.state.hover ) {
                 this.enter();
             }
-            x = (mousepos.x - (this.rect.left + this.rect.width/2))*.3;
-            y = (mousepos.y - (this.rect.top + this.rect.height/2))*.3;
+            x = (mousepos.x + window.scrollX - (this.rect.left + this.rect.width/2))*.3;
+            y = (mousepos.y + window.scrollY - (this.rect.top + this.rect.height/2))*.3;
         }
         else if ( this.state.hover ) {
             this.leave();
