@@ -5630,21 +5630,9 @@ var calcWinsize = function calcWinsize() {
 exports.calcWinsize = calcWinsize;
 
 var getMousePos = function getMousePos(e) {
-  var posx = 0;
-  var posy = 0;
-  if (!e) e = window.event;
-
-  if (e.pageX || e.pageY) {
-    posx = e.pageX;
-    posy = e.pageY;
-  } else if (e.clientX || e.clientY) {
-    posx = e.clientX + body.scrollLeft + document.documentElement.scrollLeft;
-    posy = e.clientY + body.scrollTop + document.documentElement.scrollTop;
-  }
-
   return {
-    x: posx,
-    y: posy
+    x: e.clientX,
+    y: e.clientY
   };
 };
 
@@ -6353,7 +6341,7 @@ var ButtonCtrl = /*#__PURE__*/function (_EventEmitter) {
       var _this3 = this;
 
       // calculate the distance from the mouse to the center of the button
-      var distanceMouseButton = (0, _utils.distance)(mousepos.x, mousepos.y, this.rect.left + this.rect.width / 2, this.rect.top + this.rect.height / 2); // new values for the translations and scale
+      var distanceMouseButton = (0, _utils.distance)(mousepos.x + window.scrollX, mousepos.y + window.scrollY, this.rect.left + this.rect.width / 2, this.rect.top + this.rect.height / 2); // new values for the translations and scale
 
       var x = 0;
       var y = 0;
@@ -6363,8 +6351,8 @@ var ButtonCtrl = /*#__PURE__*/function (_EventEmitter) {
           this.enter();
         }
 
-        x = (mousepos.x - (this.rect.left + this.rect.width / 2)) * .3;
-        y = (mousepos.y - (this.rect.top + this.rect.height / 2)) * .3;
+        x = (mousepos.x + window.scrollX - (this.rect.left + this.rect.width / 2)) * .3;
+        y = (mousepos.y + window.scrollY - (this.rect.top + this.rect.height / 2)) * .3;
       } else if (this.state.hover) {
         this.leave();
       }
